@@ -3,15 +3,17 @@
     <head>
         <meta charset="utf-8">
         <title>Document</title>
+        <link rel="stylesheet" href="./remind_js.css">
     </head>
     <body>
         
 <!--    1. 셀렉터 연습-->
-        <h2 id='hello'>안녕하세요</h2>
-        <h2 id='hi'>올때 메로나</h2>
+<!--        <h2 id='hello'>안녕하세요</h2>-->
+<!--        <h2 id='hi'>올때 메로나</h2>-->
 <!--    2. 버튼 알림창-->
-       <button class='btn-style btn-color'></button>
-        
+    <div class='alert-box' id='alert-box'> 클릭 하셨네용 <button onclick="document.getElementById('alert-box').style.display='none'">닫기</button></div>
+          <button class='btn' onclick="document.getElementById('alert-box').style.display='block'">click</button>
+    
     </body>
     
     <script>
@@ -22,11 +24,11 @@
     // 1. 바꾸고 싶은 HTML 요소를 선택
     // 2. 뭐 바꿀지 뒤에 적는다. 
         
-        document.getElementById('hello').innerHTML = '사실 안녕 못함';
+//        document.getElementById('hello').innerHTML = '사실 안녕 못함';
     //  웹문서의 . id가 hello인 HTML 요소 . 내부 글자
     
-        document.getElementById('hi').innerHTML = '올때 바밤바';
-        document.getElementById('hi').style.fontSize = '30px';
+//        document.getElementById('hi').innerHTML = '올때 바밤바';
+//        document.getElementById('hi').style.fontSize = '30px';
     // id가 'hi'인 요소의 내부 글자를 변경해줘    
     
     </script>
