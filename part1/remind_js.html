@@ -11,18 +11,33 @@
 <!--        <h2 id='hello'>안녕하세요</h2>-->
 <!--        <h2 id='hi'>올때 메로나</h2>-->
 <!--    2. 버튼 알림창-->
-    <div class='alert-box' id='alert-box'> 클릭 하셨네용 <button onclick="document.getElementById('alert-box').style.display='none'">닫기</button></div>
-          <button class='btn' onclick="document.getElementById('alert-box').style.display='block'">click</button>
-    
+          
+          <div class='alert-box' id='alert-box'> 
+              <p id='title'>Alert-Box</p>
+              <button id='close-btn'>X</button>
+          </div>
+          <button class='btn' onclick="알림창상태('block','id를 잘못입력하심')">click1</button>
+          <button class='btn' onclick="알림창상태('block','pw를 잘못입력하심')">click2</button>
     </body>
     
+    
+<!--    JS 조작은 아래에서! : HTML 코드를 먼저 읽어야 JS로 조작이 가능
+        [자주 겪는 에러메세지] 
+        1. ' ' of null -> 앞에 getElementById가 id를 찾지 못했음
+        2. 오타
+   -->
     <script>
     
     //JS의 목적 = HTML 조작 & 변경 (By. JS Selector)
     
     // JS Selector 
+    // -> getElementById, getElementsByClassName (class명에 해당하는 것을 모두 찾아준다.)
+    // getElementsByClassName('')[0] -> 첫번째 요소를 찾아준다. 
+        
     // 1. 바꾸고 싶은 HTML 요소를 선택
     // 2. 뭐 바꿀지 뒤에 적는다. 
+        
+    
         
 //        document.getElementById('hello').innerHTML = '사실 안녕 못함';
     //  웹문서의 . id가 hello인 HTML 요소 . 내부 글자
@@ -30,6 +45,35 @@
 //        document.getElementById('hi').innerHTML = '올때 바밤바';
 //        document.getElementById('hi').style.fontSize = '30px';
     // id가 'hi'인 요소의 내부 글자를 변경해줘    
+
+        
+    // function 쓰는 이유 
+    // 1. 긴 코드를 한 글자로 축약 가능
+    // 2. 함수 업그레이드를 하고 싶으면 파라미터 -> 가변적으로 함수를 생성할 수 있다. 
+        
+        
+    // 파라미터를 활용하여 가변적인 함수를 생성
+    function 알림창상태(구멍1, 구멍2){
+        //1. 알림창 열기
+        document.getElementById('alert-box').style.display = 구멍1;
+        
+        //2. 내용 바꾸기
+        document.getElementById('title').innerHTML = 구멍2; 
+    }
     
+    function 알림창닫기(){
+        document.getElementById('alert-box').style.display='none';
+    }
+    
+        
+    // EventListener : HTML 내부에 onclick 안쓰고 JS에 입력하여 onclick과 동일한 효과를 낼 수 있는 JS 문법 
+    // 왼쪽에 있는 요소가 클릭이 되면 2번째 인자로 들어가있는 함수를 실행
+        
+    // 첫번째 인자 : Event  ex) click, keydown, scroll, mouseover 등등
+    // 두번째 인자 : function -> 이벤트가 일어나면 해당 함수를 실행해줘라. 
+    document.getElementById('close-btn').addEventListener('click', function(){
+        document.getElementById('alert-box').style.display='none';
+    })
+        
     </script>
 </html>
