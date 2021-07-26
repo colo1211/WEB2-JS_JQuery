@@ -16,14 +16,23 @@
        3. slim : 기능 많이 빠진 라이트한 버전
  -->
 
-    <h4 id="title">안녕하세요</h4>
+    <p class="hello">안녕하세요</p>
+    <p class="hello">안녕하세요</p>
+    <p class="hello">안녕하세요</p>
+    
+    <button class='btn'>버튼</button>
+    <button class='btn'>버튼</button>
+    <button class='btn'>버튼</button>
+    
+    
+    
     <script>
         
         // id 가 title 인 태그에 class를 추가하는 방법
         //1. attr
 //        $('#title').attr('class', 'yellow-bg');
         //2. addClass
-        $('#title').addClass('yellow-bg');
+//        $('#title').addClass('yellow-bg');
         
         
         // jQuery는 JS와 완전히 다른 것이 아님, 기능은 동일하게 하고 메소드 명은 간단하게 작성할 수 있게끔 해준다. 
@@ -35,10 +44,35 @@
         
         
         //jQuery 쓰는 이유 
+        
         //1. 동일한 역할 , 짧은 코드
         // JS : document.getElementById().innerHTML=? 
         // jQuery : $('').html(?)
         
+        
+        // 2. class 셀렉터를 사용할 때 한번에 여러 개 처리 가능 및 이벤트 리스너 간단화 
+        // 기존 JS 코드, class를 선택할 때 여러개 선택이 안된다. 
+        // 순서를 반드시 지정해 주어야 한다. 
+        
+        // 기존 JS 코드
+//        document.getElementsByClassName('btn')[0].addEventListener('click',function(){
+//            document.getElementsByClassName('hello')[0].style.display='none';
+//        })
+        
+        // jQuery 코드 
+        // 만약, jQuery로 찾은 여러 요소 중 맨 위의 것만 바꾸고 싶은 경우 $('.greeting').eq(0) 
+//        $('.btn').on('click',function(){
+//            $('.hello').css('display','none');
+//        })
+
+        
+        // 3. 다양한 UI 애니메이션 구현이 가능 
+        // 이미 구현되어 있는 다양한 메소드를 활용하여 애니메이션을 구현 가능하다. 
+        // hide(), fadeOut(), slideUp()
+         $('.btn').on('click',function(){
+            $('.hello').hide(); //보여주기는 show()
+        })
+
         
     </script>
 
