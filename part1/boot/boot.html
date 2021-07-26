@@ -24,7 +24,7 @@
      -->
     <div class='black-background'>
         <div class='white-background'>
-            <h3 class='text-center mb-5'>Sign Up</h3>
+            <h3 class='text-center mb-5'>Sign In</h3>
             <form>
                 <p>Emain Address</p>
                 <input class='input-size' type="text" placeholder="Enter email">
@@ -37,11 +37,13 @@
     </div>
 
     <div class='nav-menu'>
-        <h4 style='margin:0'>Shirts Studio</h4>
-        <a id='show-nav'>Products</a>
+        <h4 style='margin:0'>Fashion Mall</h4>
+        <p style='flex-grow: 1'></p>
+        <a id='show-nav'>Our Products</a>
     </div>
 
-<!--   product를 클릭했을 때 나오는 세부 메뉴들-->
+    <!--   product를 클릭했을 때 나오는 세부 메뉴들-->
+    
     <ul class="list-group">
         <li class="list-group-item">Outer</li>
         <li class="list-group-item">Jackets</li>
@@ -50,7 +52,7 @@
         <li class="list-group-item">Inner-wear</li>
     </ul>
 
-
+  
     <div class="jumbotron main-background">
         <h1 class="display-4">Shirt Shop</h1>
         <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
@@ -59,31 +61,44 @@
         <a class="btn btn-primary btn-lg" id='btn-click' href="#" role="button">Log In</a>
 
     </div>
-
+    
+    <input id='test-input' type='text' placeholder="로그인이라고 치고 Login">
+   
     <script>
-        $('#btn-click').on('click', function() {
-            $('.black-background').fadeIn();
+        
+        //조건문 : if 문 내의 조건이 참일 때, {} 내에 있는 문법을 실행해준다. 
+        // == : 느슨한 비교 (자료형 검사X)
+        // === : 엄격한 비교 (자료형 검사O)
+        
             //hide() : 숨김
             //show() : 보여줌 
             //fadeIn() : 천천히 보여줌 
             //fadeOut() : 천천히 사라짐
             //slideUp() : 아래에서 위로 사라짐(숨김)
             //slideDown() : 위에서 내려옴 (등장)
-            
+
             //Togle : 왔다갔다 하게 해준다. 
             //togle() : hide/show를 왔다갔다. 
             //slideToggle() : 이미 보여졌으면 감추고 감춰져 있으면 보이게 한다. (등장 & 숨김), slideUp과 slideDown 을 왔다갔다해줌
             //fadeToggle() : fadeIn과 fadeOut을 왔다갔다 하게끔 해준다. 
+        
+        $('#btn-click').on('click', function() {
+            if ($('#test-input').val()=='로그인할래'){
+                $('.black-background').fadeIn();
+            }
+            else {
+                alert('input 창에 "로그인할래" 입력 후 클릭');
+            }
         })
+        
 
         $('#btn-close').on('click', function() {
             $('.black-background').fadeOut();
         })
-        
-        $('#show-nav').on('click',function(){
+
+        $('#show-nav').on('click', function() {
             $('.list-group').slideToggle();
         })
-        
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
