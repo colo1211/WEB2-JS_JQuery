@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="./JQuery_start.css">
+    <!--HTML은 위에서 아래로 읽어들이는데 외부 JS 파일을 발견하면 잠깐 멈추고 파일을 다운 받아옴-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <!--   JQuery CDN
+       1. uncomperssed 버전 : 그냥 원본 파일
+       2. minified 버전 : 공백 제거 버전
+       3. slim : 기능 많이 빠진 라이트한 버전
+ -->
+
+    <h4 id="title">안녕하세요</h4>
+    <script>
+        
+        // id 가 title 인 태그에 class를 추가하는 방법
+        //1. attr
+//        $('#title').attr('class', 'yellow-bg');
+        //2. addClass
+        $('#title').addClass('yellow-bg');
+        
+        
+        // jQuery는 JS와 완전히 다른 것이 아님, 기능은 동일하게 하고 메소드 명은 간단하게 작성할 수 있게끔 해준다. 
+        // document.getElementById('title').innerHTML = '???';
+//        $('#test').text('이건 제이쿼리식'); // text : 내부에 있는 글자만
+//        $('#test').html('<h1> HI </h1>'); // html : 내부에 있는 모든 html을 조작 가능 
+//        $('#test').css('color', 'red'); // css : style 요소를 변경 가능
+//        $('#test').attr('src', ) // attr : 세부 속성을 지정 가능
+        
+        
+        //jQuery 쓰는 이유 
+        //1. 동일한 역할 , 짧은 코드
+        // JS : document.getElementById().innerHTML=? 
+        // jQuery : $('').html(?)
+        
+        
+    </script>
+
+
+</body>
+</html>
