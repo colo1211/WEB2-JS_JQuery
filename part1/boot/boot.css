@@ -7,6 +7,7 @@ div,input{
     background-size : cover; 
     background-position: center;
     color : white;
+    border-radius: 0px; 
 }
 
 .black-background {
@@ -33,3 +34,18 @@ div,input{
     margin : auto auto 20px auto ;
     padding : 10px; 
 }
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding : 15px;
+    cursor: pointer;
+}
+
+
+.list-group {
+    display: none;
+}
+
+

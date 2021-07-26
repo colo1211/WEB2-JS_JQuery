@@ -13,15 +13,15 @@
 </head>
 
 <body>
-   <!-- 모달창 UI : (구) 팝업, 버튼을 클릭하면 창이 뜨면서 로그인 혹은 여러 안내문구를 띄움. 새로운 창을 띄우는 느낌만 준다.
+
+
+    <!-- 모달창 UI : (구) 팝업, 버튼을 클릭하면 창이 뜨면서 로그인 혹은 여러 안내문구를 띄움. 새로운 창을 띄우는 느낌만 준다.
        [만드는 순서]
        1. HTML 로 미리 디자인 해놓는다. 
        2. 숨겨 놓는다. 
-       3. 버튼을 눌렀을 때 다시 보여준다. 
+       3. 버튼을 눌렀을 때 다시 보여준다. (이걸 JS 혹은 Jquery의 이벤트 리스너로 해결)
        TIP! HTML 코드 상에서는 맨 위에다가 코딩한다. 
      -->
-    
-       
     <div class='black-background'>
         <div class='white-background'>
             <h3 class='text-center mb-5'>Sign Up</h3>
@@ -32,11 +32,25 @@
                 <input class='input-size' type="text" placeholder="Password">
             </form>
             <button type="button" class="btn btn-danger">Submit</button>
-            <button type="button" class="btn btn-secondary">CLOSE</button>
+            <button type="button" class="btn btn-secondary" id='btn-close'>CLOSE</button>
         </div>
     </div>
-    
-    
+
+    <div class='nav-menu'>
+        <h4 style='margin:0'>Shirts Studio</h4>
+        <a id='show-nav'>Products</a>
+    </div>
+
+<!--   product를 클릭했을 때 나오는 세부 메뉴들-->
+    <ul class="list-group">
+        <li class="list-group-item">Outer</li>
+        <li class="list-group-item">Jackets</li>
+        <li class="list-group-item">Socks</li>
+        <li class="list-group-item">Shirts</li>
+        <li class="list-group-item">Inner-wear</li>
+    </ul>
+
+
     <div class="jumbotron main-background">
         <h1 class="display-4">Shirt Shop</h1>
         <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
@@ -47,13 +61,31 @@
     </div>
 
     <script>
+        $('#btn-click').on('click', function() {
+            $('.black-background').fadeIn();
+            //hide() : 숨김
+            //show() : 보여줌 
+            //fadeIn() : 천천히 보여줌 
+            //fadeOut() : 천천히 사라짐
+            //slideUp() : 아래에서 위로 사라짐(숨김)
+            //slideDown() : 위에서 내려옴 (등장)
+            
+            //Togle : 왔다갔다 하게 해준다. 
+            //togle() : hide/show를 왔다갔다. 
+            //slideToggle() : 이미 보여졌으면 감추고 감춰져 있으면 보이게 한다. (등장 & 숨김), slideUp과 slideDown 을 왔다갔다해줌
+            //fadeToggle() : fadeIn과 fadeOut을 왔다갔다 하게끔 해준다. 
+        })
+
+        $('#btn-close').on('click', function() {
+            $('.black-background').fadeOut();
+        })
         
-        $('#btn-click').on('click', function(){
-            $('.black-background').css('display','block');
+        $('#show-nav').on('click',function(){
+            $('.list-group').slideToggle();
         })
         
     </script>
-   
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
 
 </body></html>
