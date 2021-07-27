@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="./boot.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <title>Hello, world!</title>
+</head>
+
+<body>
+
+
+    <!-- 모달창 UI : (구) 팝업, 버튼을 클릭하면 창이 뜨면서 로그인 혹은 여러 안내문구를 띄움. 새로운 창을 띄우는 느낌만 준다.
+       [만드는 순서]
+       1. HTML 로 미리 디자인 해놓는다. 
+       2. 숨겨 놓는다. 
+       3. 버튼을 눌렀을 때 다시 보여준다. (이걸 JS 혹은 Jquery의 이벤트 리스너로 해결)
+       TIP! HTML 코드 상에서는 맨 위에다가 코딩한다. 
+     -->
+    <div class='black-background'>
+        <div class='white-background'>
+            <h3 class='text-center mb-5'>Sign in</h3>
+            <form action="login.php">
+                <div class="form-group mb-2">
+                    <h5>Email Address</h5>
+                    <input type="email" id='email' class="form-control" placeholder="Email" id="email">
+                    <p id='email-alert'>이메일을 입력해주세요</p>
+                </div>
+                <div class="form-group mb-5">
+                    <h5>Password</h5>
+                    <input type="password" id='password' class="form-control" placeholder="Password">
+                    <p id='pw-alert'>패스워드를 입력해주세요</p>
+                </div>
+                <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                <button type="button" id='btn-close' class="btn btn-danger mr-2">Cancel</button>
+            </form>
+        </div>
+    </div>
+
+    <div class='nav-menu'>
+        <h4 style='margin:0'>Fashion Mall</h4>
+        <p style='flex-grow: 1'></p>
+        <a id='show-nav'>Our Products</a>
+    </div>
+
+    <!--   product를 클릭했을 때 나오는 세부 메뉴들-->
+
+    <ul class="list-group">
+        <li class="list-group-item">Outer</li>
+        <li class="list-group-item">Jackets</li>
+        <li class="list-group-item">Socks</li>
+        <li class="list-group-item">Shirts</li>
+        <li class="list-group-item">Inner-wear</li>
+    </ul>
+
+
+    <div class="jumbotron main-background">
+        <h1 class="display-4">Shirt Shop</h1>
+        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+        <hr class="my-4">
+        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+        <a class="btn btn-primary btn-lg" id='btn-click' href="#" role="button">Log In</a>
+
+    </div>
+
+    <script>
+        //조건문 : if 문 내의 조건이 참일 때, {} 내에 있는 문법을 실행해준다. 
+        // == : 느슨한 비교 (자료형 검사X)
+        // === : 엄격한 비교 (자료형 검사O)
+
+        //hide() : 숨김
+        //show() : 보여줌 
+        //fadeIn() : 천천히 보여줌 
+        //fadeOut() : 천천히 사라짐
+        //slideUp() : 아래에서 위로 사라짐(숨김)
+        //slideDown() : 위에서 내려옴 (등장)
+
+        //Togle : 왔다갔다 하게 해준다. 
+        //togle() : hide/show를 왔다갔다. 
+        //slideToggle() : 이미 보여졌으면 감추고 감춰져 있으면 보이게 한다. (등장 & 숨김), slideUp과 slideDown 을 왔다갔다해줌
+        //fadeToggle() : fadeIn과 fadeOut을 왔다갔다 하게끔 해준다. 
+
+
+        // 폼이 전송될 때, 이메일 input에 입력된 값이 빈칸인 경우, 
+        // 폼의 전송을 막는다. + 안내문을 띄운다. 
+
+
+        // 셀렉터를 변수에 담아두는 습관은 좋은 습관! 
+        var 이메일안내창 = $('#email').val();
+        var 비번안내창 = $('#password').val();
+        $('form').on('submit', function(e) {
+            if (이메일안내창 == '') { // 이메일이 빈칸일 때
+                e.preventDefault(); // 제출을 막아주는 코드 
+                $('#email-alert').fadeIn(); // 바로 밑에 입력하라고 알림을 띄워주는 코드
+            }
+            if (비번안내창 == '') {
+                e.preventDefault();
+                $('#pw-alert').fadeIn();
+            }
+        })
+
+
+        
+//        if (true) {
+//            let let_test = 'let'; // 지역 변수로 취급됨 
+//            var var_test = 'var'; // 전역 변수로 취급됨
+//        }
+//        console.log(var_test);
+//        console.log(let_test);
+
+
+        // var : 재선언이 가능한 변수를 만들 때, 범위 : 함수 스코프(함수 내에서만 지역변수, 나머지는 모두 전역변수)
+
+        // let : 재선언이 불가능 (에러방지용), 범위 : {}, 블록 스코프내에서는 모두 지역변수 
+        // const : 재선언 불가능 & 재할당 불가능, 범위 : {}, 블록 스코프내에서는 모두 지역변수
+
+//        var 나이 = 20;
+        // input : 내부 입력 값들이 변경될 때 마다 내부코드를 실행해주는 이벤트리스너  
+        // change : 포커스를 잃었을 때 커서가 다른 곳에 찍혔을 때 실행되는 이벤트 리스너
+        //        
+        //        $('#email').on('input', function(e){
+        //            $('#email-alert').fadeIn();
+        //            $('#email-alert').text('입력중...');    
+        //        })
+        //        
+        //        $('#password').on('input', function(e){
+        //            $('pw-alert').fadeIn();
+        //            $('pw-alert').text('입력중...');    
+        //        })
+
+
+        $('#btn-click').on('click', function() {
+            $('.black-background').fadeIn();
+        })
+
+        $('#btn-close').on('click', function() {
+            $('.black-background').fadeOut();
+        })
+
+        $('#show-nav').on('click', function() {
+            $('.list-group').slideToggle();
+        })
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+
+</body></html>
