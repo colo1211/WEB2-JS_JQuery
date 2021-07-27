@@ -48,3 +48,11 @@ div,input{
 }
 
 
+
+#email-alert {
+    display : none;
+}
+
+#pw-alert {
+    display : none;
+}

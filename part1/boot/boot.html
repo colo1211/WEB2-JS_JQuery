@@ -24,20 +24,21 @@
      -->
     <div class='black-background'>
         <div class='white-background'>
-           <form action="login.php">
-            <h3 class='text-center mb-5'>Sign In</h3>
-                <p>Emain Address</p>
-                <div class='form-group'>
-                    <input class='input-size form-control' type='text' placeholder="Enter email">
+           <h3 class='text-center mb-5'>Sign in</h3>
+            <form action="login.php">
+                <div class="form-group mb-2">
+                   <h5>Email Address</h5>
+                    <input type="email" id='email' class="form-control" placeholder="Email" id="email">
+                    <p id='email-alert'>이메일을 입력해주세요</p>
                 </div>
-                <p>PassWord</p>
-                <div class='form-group'>
-                    <input class='input-size form-control' type="password" placeholder="Password">
+                <div class="form-group mb-5">
+                   <h5>Password</h5>
+                    <input type="password" id='password' class="form-control" placeholder="Password">
+                    <p id='pw-alert'>패스워드를 입력해주세요</p>
                 </div>
-                <button type="submit" class="btn btn-danger">Submit</button>
-                <button type="button" class="btn btn-secondary" id='btn-close'>CLOSE</button>
+                <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                <button type="button" id='btn-close' class="btn btn-danger mr-2">Cancel</button>
             </form>
-
         </div>
     </div>
 
@@ -84,17 +85,35 @@
         //slideToggle() : 이미 보여졌으면 감추고 감춰져 있으면 보이게 한다. (등장 & 숨김), slideUp과 slideDown 을 왔다갔다해줌
         //fadeToggle() : fadeIn과 fadeOut을 왔다갔다 하게끔 해준다. 
 
-        
-        // 로그인 빈칸 검사 기능 만들기 (폼이 전송 될 때 실행)
-        $('form').on('submit',function(e){
-            e.preventDefault(); // 빈칸을 막아주는 코드 
+
+        // 폼이 전송될 때, 이메일 input에 입력된 값이 빈칸인 경우, 
+        // 폼의 전송을 막는다. + 안내문을 띄운다. 
+
+        $('form').on('submit', function(e) {
+            if ($('#email').val() == '') { // 이메일이 빈칸일 때
+                e.preventDefault(); // 제출을 막아주는 코드 
+                $('#email-alert').fadeIn(); // 바로 밑에 입력하라고 알림을 띄워주는 코드
+            }
+            if ($('#password').val()==''){
+                e.preventDefault();
+                $('#pw-alert').fadeIn();
+            }
         })
         
+        $('form').on('input', function(e){
+            $('#email-alert').fadeIn();
+            $('#email-alert').text('입력중...');    
+        })
         
+        $('form').on('input', function(e){
+            $('pw-alert').fadeIn();
+            $('pw-alert').text('입력중...');    
+        })
+
+
         $('#btn-click').on('click', function() {
             $('.black-background').fadeIn();
         })
-
 
         $('#btn-close').on('click', function() {
             $('.black-background').fadeOut();
