@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>369</title>
+        <meta charset='utf-8'>
+    </head>
+    <body>
+        <script>
+            삼육구게임(5); // 통과 
+            삼육구게임(3); // 박수
+            
+            삼육구_up(6); // 박수
+            삼육구_up(11); // 통과
+            삼육구_up(18); // 박수*2
+            
+            origin_삼육구(1);
+            origin_삼육구(2);
+            origin_삼육구(3);
+            origin_삼육구(4);
+            origin_삼육구(5);
+            origin_삼육구(6);
+            
+            // 1. 삼육구 게임 
+            function 삼육구게임(user){
+                if (user%3===0){
+                    console.log('박수');
+                }else{
+                    console.log('통과');
+                }
+            }
+            
+            // 2. 삼육구 업그레이드
+            function 삼육구_up(user){
+                if (user%3===0 && user%9 !== 0){
+                    console.log('박수');
+                }else if(user%9===0){
+                    console.log('박수*2'); 
+                }
+                else{
+                    console.log('통과');
+                }
+            }
+            
+            // 3. 369 원래 게임
+            function origin_삼육구(user){
+                if (user%10==3||user%10==6||user%10==9){
+                    console.log('짝');
+                }else{
+                    console.log('통과');
+                }
+            }
+        </script>
+    </body>
+</html>
