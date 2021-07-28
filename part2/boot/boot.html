@@ -148,6 +148,7 @@
         //        })
 
 
+        // camelCase 작명법, 2번째 인자는 밀리초 단위(~에 걸쳐서 진행)
         $('#btn-nav').on('click',function(){
             $('.left-menu').animate({ marginLeft : '0px' } , 500);
         })
@@ -167,11 +168,7 @@
         $('#show-nav').on('click', function() {
             $('.list-group').slideToggle();
         });
-        
-        $('#hi').click(function(){
-           $('#hi').animate({ marginLeft : '300px' }, 1000); 
-            // camelCase 작명법, 2번째 인자는 밀리초 단위(~에 걸쳐서 진행)
-        });
+    
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
