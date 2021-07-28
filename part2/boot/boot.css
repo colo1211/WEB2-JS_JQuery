@@ -1,6 +1,23 @@
 div,input{
     box-sizing: border-box;
 }
+
+.left-menu {
+    width : 150px;
+    height : 100vh;
+    background-color: black;
+    color : white; 
+    position : fixed; 
+    margin-left : -150px;
+}    
+
+.left-menu p{
+    text-align: right; 
+    margin: 20px 5px auto auto;  
+    border-bottom : 1px solid white;
+}
+
+
 .main-background {
     background-image: url(../이미지파일/travel.jpg);
     background-repeat: no-repeat;
