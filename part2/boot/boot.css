@@ -5,9 +5,9 @@ div,input{
 .left-menu {
     width : 150px;
     height : 100vh;
-    background-color: black;
-    color : white; 
-    position : fixed; 
+    background-color: rgba(0,0,0,0.9);
+    color : #f6f6f6; 
+    position : fixed; /* 붕 띄워준다. */
     margin-left : -150px;
 }    
 
@@ -33,7 +33,7 @@ div,input{
     height : 100vh;
     position : fixed; 
     z-index: 5; 
-    display: none;
+    margin-top: -100%;
 }
 
 .white-background {
