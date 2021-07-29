@@ -33,7 +33,9 @@ div,input{
     height : 100vh;
     position : fixed; 
     z-index: 5; 
-    margin-top: -100%;
+    display : block; 
+    transition: all 1s;
+    transform: translateY(-100%);
 }
 
 .white-background {
@@ -64,7 +66,9 @@ div,input{
     display: none;
 }
 
-
+.login-ani{
+    transform:translateY(0px);
+}
 
 #email-alert {
     display : none;

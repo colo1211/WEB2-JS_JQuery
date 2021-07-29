@@ -76,7 +76,7 @@
         <hr class="my-4">
         <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
         <a class="btn btn-primary btn-lg" id='btn-click' href="#" role="button">Log In</a>
-        <a class="btn btn-info btn-lg" id='btn-nav' href="#" role="button">Show left Nav</a>
+        <a class="btn btn-danger btn-lg" id='btn-nav' href="#" role="button">Show Nav</a>
 
 
 
@@ -151,19 +151,16 @@
 
         // camelCase 작명법, 2번째 인자는 밀리초 단위(~에 걸쳐서 진행)
         $('#btn-nav').on('click', function() {
-            $('.left-menu').animate({
-                marginLeft: '0px'
-            }, 500);
+            $('.left-menu').animate({marginLeft: '0px'}, 500);
         })
 
         $('#nav-close').click(function() {
-            $('.left-menu').animate({
-                marginLeft: '-150px'
-            }, 100);
+            $('.left-menu').animate({marginLeft: '-150px'}, 100);
         })
 
         $('#btn-click').on('click', function() {
-            $('.black-background').animate({marginTop: '0px'}, 100);
+            // css, animate 등을 활용 하는 것 보다 addClass를 활용 하는 것이 좋다. (재활용성)
+            $('.black-background').addClass('login-ani'); 
         });
 
         $('#btn-close').on('click', function() {
