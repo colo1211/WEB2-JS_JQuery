@@ -40,12 +40,12 @@
                 <div class="form-group mb-2">
                     <h5>Email Address</h5>
                     <input type="text" id='email' class="form-control" placeholder="Email">
-                    <p id='email-alert'>이메일을 입력해주세요</p>
+                    <p id='email-alert'></p>
                 </div>
                 <div class="form-group mb-5">
                     <h5>Password</h5>
                     <input type="text" id='password' class="form-control" placeholder="Password">
-                    <p id='pw-alert'>패스워드를 입력해주세요</p>
+                    <p id='pw-alert'></p>
                 </div>
                 <button type="submit" class="btn btn-primary mr-2">Submit</button>
                 <button type="button" id='btn-close' class="btn btn-danger mr-2">Cancel</button>
@@ -131,24 +131,27 @@
             
             // 이메일 형식이 맞는지 검사하는 정규 표현식
             if (/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()\.,;\s@\"]+\.{0,1})+([^<>()\.,;:\s@\"]{2,}|[\d\.]+))$/.test(이메일안내창) == false) {
-                $('#email-alert').show().html('이메일 형식에 맞게 입력하세요');
+                $('#email-alert').show().text('이메일 형식에 맞게 입력하세요');
                 e.preventDefault();
-            }
-            else if (이메일안내창 == '') {
-                $('#email-alert').show().html('빈칸이네요.');
+                if (이메일안내창 == '') {
+                $('#email-alert').show().text('빈칸이네요.');
                 e.preventDefault();
-            }
-            else{
-                $('#email-alert').show().html(' ');
+             }
+            }else{
+                $('#email-alert').show().text(' ');
             }
 
             
             // 패스워드 입력이 대문자가 없으면 전송 막는 정규표현식
             if (/[A-Z]+/.test(비번안내창) == false) {
                 e.preventDefault();
-                $('#pw-alert').show().html('비번에는 대문자 있어야함.');
+                $('#pw-alert').show().text('비번에는 대문자 있어야함.');
+                if(비번안내창==''){
+                    $('#pw-alert').show().text('빈칸이네요.');
+                    e.preventDefault();
+                }
             }else {
-                $('#pw-alert').show().html(' ');
+                $('#pw-alert').show().text(' ');
             }
         });
 
