@@ -1,4 +1,4 @@
-div,input{
+div,input,img{
     box-sizing: border-box;
 }
 
@@ -76,4 +76,19 @@ div,input{
 
 #pw-alert {
     display : none;
+}
+
+.container-slide {
+    width : 300vw; 
+    transition: transform 1s;
+}
+
+.wrap-img {
+    width : 100vh;
+    float : left;
+    padding : 100px;
+}
+
+.wrap-img img{
+    width : 100%;
 }
