@@ -1,6 +1,7 @@
 div,input{
     box-sizing: border-box;
 }
+
 .main-background {
     background-image: url(../이미지파일/travel.jpg);
     background-repeat: no-repeat;
