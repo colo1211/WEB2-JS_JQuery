@@ -94,24 +94,44 @@
         </div>
     </div>
 
-    <button class='btn-1'>1</button>
-    <button class='btn-2'>2</button>
-    <button class='btn-3'>3</button>
+    <button class='btn-left'>left</button>
+    <button class='btn-right'>right</button>
+
 
     <script>
-        $('.btn-1').click(function() {
-            // 이미지 3개를 담고 있는 컨테이너를 100vw 씩 움직여주면 해결된다. 
-            $('.container-slide').css('transform','translateX(0vw)');
-        })
+        
+        var currentImg = 1; 
+        
+        
 
-        $('.btn-2').click(function() {
-            $('.container-slide').css('transform','translateX(-100vw)');
+        $('.btn-left').click(function() {
+            if (currentImg === 3){
+                $('.container-slide').css('transform','translateX(-100vw)');
+                currentImg = 2; 
+            }
+            else if(currentImg === 2){
+                $('.container-slide').css('transform','translateX(0vw)');
+                currentImg = 1; 
+            }
+            else{
+                alert('더이상 띄울 곳 없음');
+            }
         })
-
-        $('.btn-3').click(function() {
-            $('.container-slide').css('transform','translateX(-200vw)');
+        
+        
+        $('.btn-right').click(function() {
+            if (currentImg === 1){
+                $('.container-slide').css('transform','translateX(-100vw)');
+                currentImg = 2; 
+            }
+            else if(currentImg === 2){
+                $('.container-slide').css('transform','translateX(-200vw)');
+                currentImg = 3; 
+            }
+            else{
+                alert('더이상 띄울 곳 없음');
+            }
         })
-
 
         //조건문 : if 문 내의 조건이 참일 때, {} 내에 있는 문법을 실행해준다. 
         // == : 느슨한 비교 (자료형 검사X)
