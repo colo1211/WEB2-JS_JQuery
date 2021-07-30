@@ -56,6 +56,7 @@
         </div>
     </div>
 
+<!--   스크롤 내리면 nav-scroll 클래스 추가 -->
     <div class='nav-menu'>
         <h4 style='margin:0'>Fashion Mall</h4>
         <p style='flex-grow: 1'></p>
@@ -74,7 +75,7 @@
 
 
     <div class="jumbotron main-background">
-        <h2>Shirt Shop</h2>
+        <h2 class='mt-5'>Shirt Shop</h2>
         <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
         <hr class="my-4">
         <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
@@ -82,9 +83,9 @@
         <a class="btn btn-danger btn-lg" id='btn-nav' href="#" role="button">Show Nav</a>
     </div>
 
-    
+
     <div style='position: relative; overflow: hidden'>
-       <h4 class='text-center mt-4'> Our Shirt Product</h4>
+        <h4 class='text-center mt-4 product-pos'> Our Shirt Product</h4>
         <!-- 넘치는 화면은 숨겨주는 기능 overflow:hidden -->
         <div class='container-slide'>
             <div class='wrap-img'>
@@ -99,13 +100,25 @@
             <div style='clear: both'></div>
         </div>
 
-        <button class='btn-direct btn-left'>before</button>
-        <button class='btn-direct btn-right'>Next</button>
+        <button class='btn-direct btn-left'>◀️</button>
+        <button class='btn-direct btn-right'>▶️</button>
     </div>
 
 
 
     <script>
+        // 스크롤 반응형 navbar 
+        $(window).on('scroll',function(){
+            if ($(window).scrollTop()>90){ // 마우스 기준한번 스크롤 하니까 scroll 값이 90이 나옴
+                $('.nav-menu').addClass('nav-scroll');
+            }else if($(window).scrollTop()<90){
+                $('.nav-menu').removeClass('nav-scroll');
+            }
+        })
+        
+        
+        
+        
         // 캐러셀 (이미지 슬라이더 개발)
         var currentImg = 1; // 현재 몇번째 사진을 보고있는지 저장 
 
@@ -117,17 +130,6 @@
             } else {
                 alert('상품이 더 이상 없습니다.');
             }
-            //            if (currentImg === 3){
-            //                $('.container-slide').css('transform','translateX(-100vw)');
-            //                currentImg -= 1; 
-            //            }
-            //            else if(currentImg === 2){
-            //                $('.container-slide').css('transform','translateX(0vw)');
-            //                currentImg -= 1; 
-            //            }
-            //            else{
-            //                alert('더이상 띄울 곳 없음');
-            //            }
         });
 
 
@@ -139,17 +141,6 @@
             } else {
                 alert('상품이 더 이상 없습니다.');
             }
-            //            if (currentImg === 1){
-            //                $('.container-slide').css('transform','translateX(-100vw)');
-            //                currentImg += 1; 
-            //            }
-            //            else if(currentImg === 2){
-            //                $('.container-slide').css('transform','translateX(-200vw)');
-            //                currentImg += 1; 
-            //            }
-            //            else{
-            //                alert('더이상 띄울 곳 없음');
-            //            }
         });
 
         //조건문 : if 문 내의 조건이 참일 때, {} 내에 있는 문법을 실행해준다. 
