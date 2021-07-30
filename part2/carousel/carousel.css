@@ -1,0 +1,35 @@
+
+.container {
+    width : 300vw;
+    transition: transform 0.5s; 
+}
+
+.img-box {
+    width : 100vw; 
+    float : left;
+}
+
+.img-box img{
+    display : block; 
+    margin : auto; 
+    width : 60%; 
+}
+
+.btn-style {
+    padding : 15px; 
+    position : absolute; 
+    border : none; 
+    background-color: rgba(0,0,0,0.8);
+    color : white; 
+    border-radius: 10%; 
+}
+
+.btn-left {
+    left : 10%;
+    top : 40%; 
+}
+
+.btn-right {
+    right : 10%; 
+    top : 40%; 
+}

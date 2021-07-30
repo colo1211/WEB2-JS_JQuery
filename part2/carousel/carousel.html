@@ -1,0 +1,52 @@
+<html>
+    <head>
+    <link rel="stylesheet" href="./carousel.css">
+    <title>carousel prac</title>
+    <meta charset='utf-8'>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <h1 style='text-align: center'> Our Shirts Shop</h1>
+
+    <div style='overflow: hidden'>
+        <div class="container">
+            <div class='img-box'>
+                <img src='../이미지파일/shirts1.jpg'>
+            </div>
+            <div class='img-box'>
+                <img src='../이미지파일/shirts2.jpg'>
+            </div>
+            <div class='img-box'>
+                <img src='../이미지파일/shirts3.jpg'>
+            </div>
+            <div style='clear: both'></div>
+        </div>
+        <button class='btn-style btn-left'>Left</button>
+        <button class='btn-style btn-right'>Right</button>
+    </div>
+</body>
+
+<script>
+    var currentImg = 1; // 현재 디스플레이 된 이미지 
+
+    $('.btn-right').click(function() {
+        if (currentImg < 3) {
+            $('.container').css('transform', 'translateX(-' + currentImg + '00vw)');
+            currentImg += 1;
+            console.log(currentImg);
+        } else {
+            alert('더 이상 볼 상품이 없습니다.');
+            console.log(currentImg);
+        }
+    });
+
+    $('.btn-left').click(function() {
+        if (currentImg > 1) {
+            $('.container').css('transform', 'translateX(-' + (currentImg - 2) + '00vw)');
+            currentImg -= 1;
+        }else { 
+            alert('더 이상 볼 상품이 없습니다.');
+        }
+    })
+</script></html>
