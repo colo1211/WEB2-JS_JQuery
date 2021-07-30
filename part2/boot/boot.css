@@ -1,6 +1,10 @@
 div,input,img{
     box-sizing: border-box;
 }
+body{
+    margin : 0px;
+    font-family: 'Georama', sans-serif;
+}
 
 .left-menu {
     width : 150px;
@@ -9,6 +13,7 @@ div,input,img{
     color : #f6f6f6; 
     position : fixed; /* 붕 띄워준다. */
     margin-left : -150px;
+    z-index: 1; 
 }    
 
 .left-menu p{
@@ -91,6 +96,29 @@ div,input,img{
 
 .wrap-img img{
     width : 100%;
+}
+
+
+
+
+
+.btn-direct {
+    position: absolute;
+    padding : 15px;
+    border : 1px solid #eee; 
+    background-color: rgba(0,0,0,0.7); 
+    border-radius: 10px; 
+    color : white;
+}
+
+.btn-right {
+    right : 0; 
+    top : 50%;
+}
+
+.btn-left {
+    left : 0; 
+    top : 50%; 
 }
 
 
