@@ -84,9 +84,9 @@ div,input,img{
 }
 
 .wrap-img {
-    width : 100vh;
-    float : left;
-    padding : 100px;
+    width : 100vw; /* 상위 container가 width가 300vw임. viewport의 width의 100%를 차지하게 해주세요. */
+    float : left; /* 왼쪽으로 나란히 정렬된다. */
+    padding : 200px;
 }
 
 .wrap-img img{

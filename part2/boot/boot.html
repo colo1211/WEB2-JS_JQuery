@@ -79,7 +79,7 @@
         <a class="btn btn-danger btn-lg" id='btn-nav' href="#" role="button">Show Nav</a>
     </div>
 
-    <div style='overflow: hidden'>
+    <div style='overflow: hidden'> <!-- 넘치는 화면은 숨겨주는 기능 overflow:hidden --> 
         <div class='container-slide'>
             <div class='wrap-img'>
                 <img src="../이미지파일/shirts1.jpg">
@@ -100,6 +100,7 @@
 
     <script>
         $('.btn-1').click(function() {
+            // 이미지 3개를 담고 있는 컨테이너를 100vw 씩 움직여주면 해결된다. 
             $('.container-slide').css('transform','translateX(0vw)');
         })
 
