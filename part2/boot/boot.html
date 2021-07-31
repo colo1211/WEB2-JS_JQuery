@@ -20,13 +20,15 @@
 
     <!--   왼쪽 navbar animation-->
     <div class='left-menu'>
-        <h5 class='mt-3 ml-4'>Menu Title </h5>
-        <button type="button" id='nav-close' class="btn btn-secondary">X</button>
-        <p>Outer</p>
-        <p>Jackets</p>
-        <p>Socks</p>
-        <p>Shirts</p>
-        <p>Inner-wear</p>
+        <div style='height : 100vh; position: relative'>
+            <h5 class='mt-3 ml-4'>Menu Title </h5>
+            <button type="button" id='nav-close' class="btn btn-secondary">Close</button>
+            <p>Outer</p>
+            <p>Jackets</p>
+            <p>Socks</p>
+            <p>Shirts</p>
+            <p>Inner-wear</p>
+        </div>
     </div>
 
     <!-- 모달창 UI : (구) 팝업, 버튼을 클릭하면 창이 뜨면서 로그인 혹은 여러 안내문구를 띄움. 새로운 창을 띄우는 느낌만 준다.
@@ -56,7 +58,7 @@
         </div>
     </div>
 
-<!--   스크롤 내리면 nav-scroll 클래스 추가 -->
+    <!--   스크롤 내리면 nav-scroll 클래스 추가 -->
     <div class='nav-menu'>
         <h4 style='margin:0'>Fashion Mall</h4>
         <p style='flex-grow: 1'></p>
@@ -108,17 +110,27 @@
 
     <script>
         // 스크롤 반응형 navbar 
-        $(window).on('scroll',function(){
-            if ($(window).scrollTop()>90){ // 마우스 기준한번 스크롤 하니까 scroll 값이 90이 나옴
+
+        $(window).on('scroll', function() {
+            console.log($(window).scrollTop());
+        })
+
+        // window : viewport를 의미 
+        // $(window).scrollTop() : 위를 기준으로 얼마나 스크롤 되었는지 알려줌 (px 단위)
+        // viewport가 scroll 되었을 때 코드를 실행해 주세요. 
+        $(window).on('scroll', function() {
+            if ($(window).scrollTop() > 90) { // 마우스 기준 한번 스크롤 하니까 scroll 값이 90이 나옴
                 $('.nav-menu').addClass('nav-scroll');
-            }else if($(window).scrollTop()<90){
+                $('.nav-menu h4').addClass('small-logo'); 
+            } else if ($(window).scrollTop() < 90) {
                 $('.nav-menu').removeClass('nav-scroll');
+                $('.nav-menu h4').removeClass('small-logo'); 
             }
         })
-        
-        
-        
-        
+
+
+
+
         // 캐러셀 (이미지 슬라이더 개발)
         var currentImg = 1; // 현재 몇번째 사진을 보고있는지 저장 
 

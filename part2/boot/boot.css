@@ -9,12 +9,16 @@ body{
 .left-menu {
     width : 150px;
     height : 100vh;
-    background-color: rgba(0,0,0,0.9);
+    background-color: rgba(0,0,0,1);
     color : #f6f6f6; 
     position : fixed; /* 붕 띄워준다. */
     margin-left : -150px;
     z-index: 4; 
 }    
+
+.left-menu p{
+    cursor: pointer;
+}
 
 .left-menu p{
     text-align: right; 
@@ -75,6 +79,7 @@ body{
 .nav-scroll {
     background-color: #f6f6f6;
     color : rgba(0,0,0,0.7);
+    font-size : 5px;
 }
 
 
@@ -134,3 +139,17 @@ body{
     left : 38%; 
 }
 
+
+#nav-close {
+    position: absolute;
+    bottom : 50%; 
+    right : 4%;
+}
+
+.nav-title {
+    font-size : 30px;
+}
+
+.small-logo {
+    font-size : 15px; 
+}
