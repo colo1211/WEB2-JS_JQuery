@@ -8,11 +8,15 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link rel="stylesheet" href="./boot.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Georama:wght@600&display=swap" rel="stylesheet">
     <title>Hello, world!</title>
+    
+<!--    JS 연결-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script type='text/javascript' src='tab.js'></script>
 </head>
 
 <body>
@@ -106,8 +110,28 @@
         <button class='btn-direct btn-right'>▶️</button>
     </div>
 
+   
+    <div class="container mt-5">
+        <ul class="list">
+            <li class="tab-button active">Products</li>
+            <li class="tab-button">Information</li>
+            <li class="tab-button">Shipping</li>
+        </ul>
+
+        <div class="tab-content show">
+            <p>상품설명입니다. Product</p>
+        </div>
+        <div class="tab-content">
+            <p>상품정보입니다. Info</p>
+        </div>
+        <div class="tab-content">
+            <p>배송정보입니다. Shipping</p>
+        </div>
+    </div>
 
 
+    
+    
     <script>
         // 스크롤 반응형 navbar 
 
@@ -121,10 +145,10 @@
         $(window).on('scroll', function() {
             if ($(window).scrollTop() > 90) { // 마우스 기준 한번 스크롤 하니까 scroll 값이 90이 나옴
                 $('.nav-menu').addClass('nav-scroll');
-                $('.nav-menu h4').addClass('small-logo'); 
+                $('.nav-menu h4').addClass('small-logo');
             } else if ($(window).scrollTop() < 90) {
                 $('.nav-menu').removeClass('nav-scroll');
-                $('.nav-menu h4').removeClass('small-logo'); 
+                $('.nav-menu h4').removeClass('small-logo');
             }
         })
 
