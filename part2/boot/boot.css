@@ -191,7 +191,7 @@ ul.list::after {
 }
 
 /* 클릭한 tab 메뉴 띄우기*/
-.active {
+.tab-btn-active {
     border-top: 4px solid skyblue;
     border-right: 1px solid #ccc;
     border-bottom: 1px solid white;
@@ -201,6 +201,6 @@ ul.list::after {
 }
 
 /* 클릭한 tab 메뉴에 대한 내용 띄우기*/
-.show {
+.tab-content-show {
     display: block;
 }

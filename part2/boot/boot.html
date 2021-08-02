@@ -118,12 +118,13 @@
    -->
     <div class="container mt-5">
         <ul class="list">
-            <li class="tab-button active ">tab1</li>
-            <li class="tab-button">tab2</li>
-            <li class="tab-button">tab3</li>
+            <li class="tab-button tab-btn-active" data-id='0'>tab1</li>
+            <li class="tab-button" data-id='1'>tab2</li>
+            <li class="tab-button" data-id='2'>tab3</li>
+            <li class="tab-button" data-id='3'>tab4</li>
         </ul>
 
-        <div class="tab-content show">
+        <div class="tab-content tab-content-show">
             <p>tab1에 대한 설명 블라블라~</p>
         </div>
         <div class="tab-content">
@@ -132,12 +133,60 @@
         <div class="tab-content">
             <p>tab3에 대한 설명 블라블라~</p>
         </div>
+        <div class="tab-content">
+            <p>tab4에 대한 설명 블라블라~</p>
+        </div>
     </div>
 
 
 
 
     <script>
+        //        for (let i = 0; i < $('.tab-button').length; i++) {
+        //            $('.tab-button').eq(i).on('click', function() {
+        //                console.log(i);
+        //                탭열기(i);
+        //            });
+        //        }
+
+        $('.list').click(function(e) {
+            
+            탭열기(e.target.dataset.id); 
+            // 만약 유저가 0번을 눌렀다면 탭 0번을 열어준다. 
+//            if (e.target == document.querySelectorAll('.tab-button')[0]) {
+//                탭열기(0);
+//            }
+//            
+//            // 만약 유저가 1번을 눌렀다면 탭 1번을 열어준다. 
+//            if (e.target == document.querySelectorAll('.tab-button')[1]) {
+//                탭열기(1);
+//            }
+//            
+//            if (e.target == document.querySelectorAll('.tab-button')[2]) {
+//                탭열기(2);
+//            }
+//
+//            if (e.target == document.querySelectorAll('.tab-button')[3]) {
+//                탭열기(3);
+//            }
+        })
+
+        function 탭열기(몇번째) {
+            // 나머지 모든 tab에 대해서 class를 제거한다.(eq를 안달면 모든 해당 class가 선택되어 remove할 수 있다.) 
+            $('.tab-button').removeClass('tab-btn-active');
+            $('.tab-content').removeClass('tab-content-show');
+            // 제거 이후에 tab에서 0번째 탭에 class를 추가한다. 
+            $('.tab-button').eq(몇번째).addClass('tab-btn-active');
+            $('.tab-content').eq(몇번째).addClass('tab-content-show');
+        }
+
+        $('.black-background').click(function(e) {
+            console.log(e.target); // 실제 user가 클릭한 요소를 html 태그로 알려준다. 
+            console.log(e.currentTarget); // user가 클릭한 요소의 이벤트 리스너가 달려있는 곳의 요소를 html 태그로 알려준다. 
+            if (e.target == e.currentTarget) {
+                $('.black-background').removeClass('login-ani');
+            }
+        })
 
         // 스크롤 반응형 navbar 
         $(window).on('scroll', function() {
@@ -313,10 +362,13 @@
         $('#show-nav').on('click', function() {
             $('.list-group').slideToggle();
         });
+
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
 
 
 
-</body></html>
+</body>
+
+</html>
