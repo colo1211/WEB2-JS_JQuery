@@ -1,0 +1,20 @@
+function init() {
+   // functin init 내에서 jQuery 사용
+}
+
+var scriptElement = document.createElement('script');
+scriptElement.src = 'http://code.jquery.com/jquery-latest.js';
+
+scriptElement.onloadDone = false;
+scriptElement.onload = function () {
+    scriptElement.onloadDone = true;
+    init();
+}
+scriptElement.onreadystatechange = function () {
+    if (("loaded" === scriptElement.readyState || "complete" === scriptElement.readyState) &&
+        !scriptElement.onloadDone) {
+        scriptElement.onloadDone = true;
+        init();
+    }
+};
+document.getElementsByTagName('head')[0].appendChild(scriptElement);
