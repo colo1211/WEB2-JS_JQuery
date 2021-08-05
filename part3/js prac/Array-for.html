@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>배열 반복문 연습</title>
+    </head>
+    <body>
+        <script>
+            //1번 
+            var 출석부 = ['흥민', '영희', '철수', '재석'];
+            
+            function 이름찾기(target){
+                 출석부.forEach(function(value){
+                     if(value === target){
+                        console.log('출석부 내에 있음');
+                     }
+                 })
+            }
+            이름찾기('철수');
+            
+            //2번
+            for (var i=1;i<=9;i++){
+                for (var j=1;j<=9;j++){
+                    console.log(i*j);
+                }
+                console.log('---------');
+            }
+            
+        </script>
+    </body>
+</html>
