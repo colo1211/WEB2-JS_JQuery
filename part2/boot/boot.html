@@ -142,35 +142,39 @@
 
 
     <script>
-        //        for (let i = 0; i < $('.tab-button').length; i++) {
-        //            $('.tab-button').eq(i).on('click', function() {
-        //                console.log(i);
-        //                탭열기(i);
-        //            });
-        //        }
-
-        $('.list').click(function(e) {
-            
-            탭열기(e.target.dataset.id); 
-            // 만약 유저가 0번을 눌렀다면 탭 0번을 열어준다. 
-//            if (e.target == document.querySelectorAll('.tab-button')[0]) {
-//                탭열기(0);
-//            }
+      
+        //  상위 요소인 list에 이벤트 리스너를 달아줌
+        //이벤트 리스너를 절약하는 방법
+        // 각각의 탭 클래스에 이벤트 리스너를 달아 주는 것이 아닌 
+        // 상위 요소의 클래스에 하나의 이벤트 리스너를 달아주고 조건문 혹은 data-id 로 달아주는 방법
+        
+        // 방법 1. querySelectorAll + 조건문
+//        $('.list').click(function(e){
+//            console.log(e.target); // <li data-brackets-id="312" class="tab-button">tab2</li>
 //            
-//            // 만약 유저가 1번을 눌렀다면 탭 1번을 열어준다. 
-//            if (e.target == document.querySelectorAll('.tab-button')[1]) {
-//                탭열기(1);
+////            만약에 실제 누른 버튼 요소가 0이면 0번 탭을 열어라
+//            if(e.target == document.querySelectorAll('.tab-button')[0]){
+//                    탭열기(0);
+//               }
+////            만약에 실제 누른 버튼 요소가 1이면 1번 탭을 열어라
+//            else if(e.target == document.querySelectorAll('.tab-button')[1]){
+//                    탭열기(1);
 //            }
-//            
-//            if (e.target == document.querySelectorAll('.tab-button')[2]) {
-//                탭열기(2);
+//            else if(e.target == document.querySelectorAll('.tab-button')[2]){
+//                    탭열기(2);
 //            }
-//
-//            if (e.target == document.querySelectorAll('.tab-button')[3]) {
-//                탭열기(3);
+//            else if(e.target == document.querySelectorAll('.tab-button')[3]){
+//                    탭열기(3);
 //            }
-        })
+//        })
 
+        // 방법 2. e.target.dataset.id
+        $('.list').click(function(e){
+            var 현재누른버튼 = e.target.dataset.id; // 몰래 심어놨던 data-id='value'를 꺼내서 사용하는 방법
+            console.log(현재누른버튼);
+            탭열기(현재누른버튼);
+        });
+        
         function 탭열기(몇번째) {
             // 나머지 모든 tab에 대해서 class를 제거한다.(eq를 안달면 모든 해당 class가 선택되어 remove할 수 있다.) 
             $('.tab-button').removeClass('tab-btn-active');
