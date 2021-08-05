@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <link rel="stylesheet" href="./binding.css">
+    <title>데이터 바인딩 연습</title>
+    <!--    JS 연결-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <h4 id='title'>Product Title</h4>
+    <p id='content'>Product Content</p>
+    <div style='margin-bottom : 1500px'></div>
+
+    <script>
+        // 배열 (대괄호 ,구분)
+        var arr = ['BMW', 520];
+        console.log(arr[1]); // 520
+        
+        
+        // 객체 (중괄호 key : value)
+        // 객체 내에는 함수, 배열, 객체 모두 넣을 수 있다.
+        // 객체에는 순서가 없다. 
+        var 객체 = {
+            이름: 'BMW',
+            모델: 520
+        };
+        console.log(객체.이름); // BMW
+
+        // 배열 내의 객체
+        var 자료 =[{brand:'BMW'},{model : 520}];
+        
+        $('#title').html(arr[0]);
+        $('#content').html(자료[1].model);
+    </script>
+</body>
+</html>
