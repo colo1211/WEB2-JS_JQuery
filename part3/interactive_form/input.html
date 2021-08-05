@@ -28,35 +28,37 @@
             <div class='size-wrap'>
                 <p class='mt-5'>사이즈</p>
                 <select class="form-control" id='option2'>
-                    <!--                JS를 통해서 사이즈를 품목에 따라 append 할 영역-->
+                    <!--JS를 통해서 사이즈를 품목에 따라 append 할 영역-->
                 </select>
             </div>
-
         </div>
     </form>
 
     <script>
         $('#option1').on('change', function() {
             if ($('#option1').val() == '셔츠') {
+                var 셔츠사이즈 = [95, 100, 105, 110];
                 $('#option2').html(' ');
-                var sizeTemplate = `
-                    <option>95</option>
-                    <option>100</option>
-                    <option>105</option>
+                셔츠사이즈.forEach((value) => {
+                    var sizeTemplate = `
+                    <option>${value}</option>
                 `;
+                    $('#option2').append(sizeTemplate);
+                })
                 $('.size-wrap').show();
-                $('#option2').append(sizeTemplate);
+
             } else if ($('#option1').val() == '바지') {
+                var 바지사이즈 = [28, 30, 32, 34, 36];
                 $('#option2').html(' ');
-                var sizeTemplate = `
-                    <option>28</option>
-                    <option>30</option>
-                    <option>32</option>
+                바지사이즈.forEach((value) => {
+                    var sizeTemplate = `
+                    <option>${value}</option>
                 `;
+                    $('#option2').append(sizeTemplate);
+                })
                 $('.size-wrap').show();
-                $('#option2').append(sizeTemplate);
-            }
-            else{
+
+            } else {
                 $('.size-wrap').hide();
             }
         });
