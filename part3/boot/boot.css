@@ -1,0 +1,206 @@
+div,
+input,
+img {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0px;
+    font-family: 'Georama', sans-serif;
+}
+
+.left-menu {
+    width: 150px;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 1);
+    color: #f6f6f6;
+    position: fixed;
+    /* 붕 띄워준다. */
+    margin-left: -150px;
+    z-index: 4;
+}
+
+.left-menu p {
+    cursor: pointer;
+}
+
+.left-menu p {
+    text-align: right;
+    margin: 20px 5px auto auto;
+    border-bottom: 1px solid white;
+}
+
+
+.main-background {
+    background-image: url(../이미지파일/travel.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    border-radius: 0px;
+}
+
+.black-background {
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 5;
+    display: block;
+    transition: all 1s;
+    transform: translateY(-100%);
+}
+
+.white-background {
+    background-color: white;
+    width: 80%;
+    margin: 100px auto;
+    padding: 40px;
+    border-radius: 5px;
+}
+
+.input-size {
+    width: 100%;
+    border: 1px solid #eee;
+    border-radius: 5%;
+    margin: auto auto 20px auto;
+    padding: 10px;
+}
+
+.nav-menu {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    cursor: pointer;
+    background-color: transparent;
+    /*transparent : 투명한*/
+    position: fixed;
+    color: #eee;
+    z-index: 3;
+    transition: all 0.5s;
+}
+
+.nav-scroll {
+    background-color: #f6f6f6;
+    color: rgba(0, 0, 0, 0.7);
+    font-size: 5px;
+}
+
+
+.list-group {
+    display: none;
+}
+
+.login-ani {
+    transform: translateY(0px);
+}
+
+#email-alert {
+    display: none;
+}
+
+#pw-alert {
+    display: none;
+}
+
+.container-slide {
+    width: 300vw;
+    transition: transform 1s;
+}
+
+.wrap-img {
+    width: 100vw;
+    /* 상위 container가 width가 300vw임. viewport의 width의 100%를 차지하게 해주세요. */
+    float: left;
+    /* 왼쪽으로 나란히 정렬된다. */
+    padding: 200px;
+}
+
+.wrap-img img {
+    width: 100%;
+}
+
+.btn-direct {
+    position: absolute;
+    padding: 15px;
+    border: 1px solid #eee;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    color: white;
+}
+
+.btn-right {
+    right: 0;
+    top: 50%;
+}
+
+.btn-left {
+    left: 0;
+    top: 50%;
+}
+
+.product-pos {
+    position: absolute;
+    top: 10%;
+    left: 38%;
+}
+
+
+#nav-close {
+    position: absolute;
+    bottom: 50%;
+    right: 4%;
+}
+
+.nav-title {
+    font-size: 30px;
+}
+
+.small-logo {
+    font-size: 15px;
+}
+
+ul.list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid #eee;
+}
+
+ul.list::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.tab-button {
+    display: block;
+    padding: 10px 20px 10px 20px;
+    float: left;
+    margin-right: -1px;
+    margin-bottom: -1px;
+    color: grey;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.tab-content {
+    display: none;
+    padding: 10px;
+}
+
+/* 클릭한 tab 메뉴 띄우기*/
+.tab-btn-active {
+    border-top: 4px solid skyblue;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid white;
+    border-left: 1px solid #ccc;
+    color: black;
+    margin-top: -2px;
+}
+
+/* 클릭한 tab 메뉴에 대한 내용 띄우기*/
+.tab-content-show {
+    display: block;
+}

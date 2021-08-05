@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="./boot.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Georama:wght@600&display=swap" rel="stylesheet">
+    <title>Hello, world!</title>
+
+    <!--    JS 연결-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+
+    <!--   왼쪽 navbar animation-->
+    <div class='left-menu'>
+        <div style='height : 100vh; position: relative'>
+            <h5 class='mt-3 ml-4'>Menu Title </h5>
+            <button type="button" id='nav-close' class="btn btn-secondary">Close</button>
+            <p>Outer</p>
+            <p>Jackets</p>
+            <p>Socks</p>
+            <p>Shirts</p>
+            <p>Inner-wear</p>
+        </div>
+    </div>
+
+    <!-- 모달창 UI : (구) 팝업, 버튼을 클릭하면 창이 뜨면서 로그인 혹은 여러 안내문구를 띄움. 새로운 창을 띄우는 느낌만 준다.
+       [만드는 순서]
+       1. HTML 로 미리 디자인 해놓는다. 
+       2. 숨겨 놓는다. 
+       3. 버튼을 눌렀을 때 다시 보여준다. (이걸 JS 혹은 Jquery의 이벤트 리스너로 해결)
+       TIP! HTML 코드 상에서는 맨 위에다가 코딩한다. 
+     -->
+    <div class='black-background'>
+        <div class='white-background'>
+            <h3 class='text-center mb-5'>Sign in</h3>
+            <form action="login.php">
+                <div class="form-group mb-2">
+                    <h5>Email Address</h5>
+                    <input type="text" id='email' class="form-control" placeholder="Email">
+                    <p id='email-alert'></p>
+                </div>
+                <div class="form-group mb-5">
+                    <h5>Password</h5>
+                    <input type="text" id='password' class="form-control" placeholder="Password">
+                    <p id='pw-alert'></p>
+                </div>
+                <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                <button type="button" id='btn-close' class="btn btn-danger mr-2">Cancel</button>
+            </form>
+        </div>
+    </div>
+
+    <!--   스크롤 내리면 nav-scroll 클래스 추가 -->
+    <div class='nav-menu'>
+        <h4 style='margin:0'>Fashion Mall</h4>
+        <p style='flex-grow: 1'></p>
+        <a id='show-nav'>Our Products</a>
+    </div>
+
+    <!--   product를 클릭했을 때 나오는 세부 메뉴들-->
+
+    <ul class="list-group">
+        <li class="list-group-item">Outer</li>
+        <li class="list-group-item">Jackets</li>
+        <li class="list-group-item">Socks</li>
+        <li class="list-group-item">Shirts</li>
+        <li class="list-group-item">Inner-wear</li>
+    </ul>
+
+
+    <div class="jumbotron main-background">
+        <h2 class='mt-5'>Shirt Shop</h2>
+        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+        <hr class="my-4">
+        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+        <a class="btn btn-primary btn-lg" id='btn-click' href="#" role="button">Log In</a>
+        <a class="btn btn-danger btn-lg" id='btn-nav' href="#" role="button">Show Nav</a>
+    </div>
+
+
+    <div style='position: relative; overflow: hidden'>
+        <h4 class='text-center mt-4 product-pos'> Our Shirt Product</h4>
+        <!-- 넘치는 화면은 숨겨주는 기능 overflow:hidden -->
+        <div class='container-slide'>
+            <div class='wrap-img'>
+                <img src="../이미지파일/shirts1.jpg">
+            </div>
+            <div class='wrap-img'>
+                <img src="../이미지파일/shirts2.jpg">
+            </div>
+            <div class='wrap-img'>
+                <img src="../이미지파일/shirts3.jpg">
+            </div>
+            <div style='clear: both'></div>
+        </div>
+
+        <button class='btn-direct btn-left'>◀️</button>
+        <button class='btn-direct btn-right'>▶️</button>
+    </div>
+
+
+    <!--   1. tab 버튼을 누르면 해당 tab-button에 active 클래스
+       2. tab 버튼을 누르면 해당 tab-content에 show 클래스
+   -->
+    <div class="container mt-5">
+        <ul class="list">
+            <li class="tab-button tab-btn-active" data-id='0'>tab1</li>
+            <li class="tab-button" data-id='1'>tab2</li>
+            <li class="tab-button" data-id='2'>tab3</li>
+            <li class="tab-button" data-id='3'>tab4</li>
+        </ul>
+
+        <div class="tab-content tab-content-show">
+            <p>tab1에 대한 설명 블라블라~</p>
+        </div>
+        <div class="tab-content">
+            <p>tab2에 대한 설명 블라블라~</p>
+        </div>
+        <div class="tab-content">
+            <p>tab3에 대한 설명 블라블라~</p>
+        </div>
+        <div class="tab-content">
+            <p>tab4에 대한 설명 블라블라~</p>
+        </div>
+    </div>
+
+
+
+
+    <script>
+      
+        //  상위 요소인 list에 이벤트 리스너를 달아줌
+        //이벤트 리스너를 절약하는 방법
+        // 각각의 탭 클래스에 이벤트 리스너를 달아 주는 것이 아닌 
+        // 상위 요소의 클래스에 하나의 이벤트 리스너를 달아주고 조건문 혹은 data-id 로 달아주는 방법
+        
+        // 방법 1. querySelectorAll + 조건문
+//        $('.list').click(function(e){
+//            console.log(e.target); // <li data-brackets-id="312" class="tab-button">tab2</li>
+//            
+////            만약에 실제 누른 버튼 요소가 0이면 0번 탭을 열어라
+//            if(e.target == document.querySelectorAll('.tab-button')[0]){
+//                    탭열기(0);
+//               }
+////            만약에 실제 누른 버튼 요소가 1이면 1번 탭을 열어라
+//            else if(e.target == document.querySelectorAll('.tab-button')[1]){
+//                    탭열기(1);
+//            }
+//            else if(e.target == document.querySelectorAll('.tab-button')[2]){
+//                    탭열기(2);
+//            }
+//            else if(e.target == document.querySelectorAll('.tab-button')[3]){
+//                    탭열기(3);
+//            }
+//        })
+
+        // 방법 2. e.target.dataset.id; 
+        $('.list').click(function(e){
+            var 현재누른버튼 = e.target.dataset.id; // 몰래 심어놨던 data-id='value'를 꺼내서 사용하는 방법
+            console.log(현재누른버튼);
+            탭열기(현재누른버튼);
+        });
+        
+        function 탭열기(몇번째) {
+            // 나머지 모든 tab에 대해서 class를 제거한다.(eq를 안달면 모든 해당 class가 선택되어 remove할 수 있다.) 
+            $('.tab-button').removeClass('tab-btn-active');
+            $('.tab-content').removeClass('tab-content-show');
+            // 제거 이후에 tab에서 0번째 탭에 class를 추가한다. 
+            $('.tab-button').eq(몇번째).addClass('tab-btn-active');
+            $('.tab-content').eq(몇번째).addClass('tab-content-show');
+        }
+
+        $('.black-background').click(function(e) {
+            console.log(e.target); // 실제 user가 클릭한 요소를 html 태그로 알려준다. 
+            console.log(e.currentTarget); // user가 클릭한 요소의 이벤트 리스너가 달려있는 곳의 요소를 html 태그로 알려준다. 
+            if (e.target == e.currentTarget) {
+                $('.black-background').removeClass('login-ani');
+            }
+        })
+
+        // 스크롤 반응형 navbar 
+        $(window).on('scroll', function() {
+            console.log($(window).scrollTop());
+        })
+
+        // window : viewport를 의미 
+        // $(window).scrollTop() : 위를 기준으로 얼마나 스크롤 되었는지 알려줌 (px 단위)
+        // viewport가 scroll 되었을 때 코드를 실행해 주세요. 
+        $(window).on('scroll', function() {
+            if ($(window).scrollTop() > 90) { // 마우스 기준 한번 스크롤 하니까 scroll 값이 90이 나옴
+                $('.nav-menu').addClass('nav-scroll');
+                $('.nav-menu h4').addClass('small-logo');
+            } else if ($(window).scrollTop() < 90) {
+                $('.nav-menu').removeClass('nav-scroll');
+                $('.nav-menu h4').removeClass('small-logo');
+            }
+        })
+
+
+
+
+        // 캐러셀 (이미지 슬라이더 개발)
+        var currentImg = 1; // 현재 몇번째 사진을 보고있는지 저장 
+
+        $('.btn-left').click(function() {
+            if (currentImg > 1) {
+                $('.container-slide').css('transform', 'translateX(-' + (currentImg - 2) + '00vw)');
+                currentImg -= 1;
+                console.log(currentImg);
+            } else {
+                alert('상품이 더 이상 없습니다.');
+            }
+        });
+
+
+        $('.btn-right').click(function() {
+            if (currentImg < 3) {
+                $('.container-slide').css('transform', 'translateX(-' + currentImg + '00vw)');
+                currentImg += 1;
+                console.log(currentImg);
+            } else {
+                alert('상품이 더 이상 없습니다.');
+            }
+        });
+
+        //조건문 : if 문 내의 조건이 참일 때, {} 내에 있는 문법을 실행해준다. 
+        // == : 느슨한 비교 (자료형 검사X)
+        // === : 엄격한 비교 (자료형 검사O)
+
+        //hide() : 숨김
+        //show() : 보여줌 
+        //fadeIn() : 천천히 보여줌 
+        //fadeOut() : 천천히 사라짐
+        //slideUp() : 아래에서 위로 사라짐(숨김)
+        //slideDown() : 위에서 내려옴 (등장)
+
+        //Togle : 왔다갔다 하게 해준다. 
+        //togle() : hide/show를 왔다갔다. 
+        //slideToggle() : 이미 보여졌으면 감추고 감춰져 있으면 보이게 한다. (등장 & 숨김), slideUp과 slideDown 을 왔다갔다해줌
+        //fadeToggle() : fadeIn과 fadeOut을 왔다갔다 하게끔 해준다. 
+
+
+
+
+
+        // <사용자가 제출한 form 이 빈칸일 때 막아주는 방법>
+        // 폼이 전송될 때, 이메일 input에 입력된 값이 빈칸인 경우, 
+        // 폼의 전송을 막는다. + 안내문을 띄운다. 
+
+
+        // 셀렉터를 변수에 담아두는 습관은 좋은 습관! 
+
+        //        $('form').on('submit', function(e) {
+        //            if (이메일안내창 == '') { // 이메일이 빈칸일 때
+        //                e.preventDefault(); // 제출을 막아주는 코드 
+        //                $('#email-alert').fadeIn(); // 바로 밑에 입력하라고 알림을 띄워주는 코드
+        //            }
+        //            if (비번안내창 == '') {
+        //                e.preventDefault();
+        //                $('#pw-alert').fadeIn();
+        //            }
+        //        })
+
+
+
+        // 정규식으로 사용자가 입력한 form 이 이메일 형식인지 검증하여 아니라면 폼 전송을 막고 알림창 띄우기
+        $('form').on('submit', function(e) {
+
+            var 이메일안내창 = $('#email').val();
+            var 비번안내창 = $('#password').val();
+
+            // 이메일 형식이 맞는지 검사하는 정규 표현식
+            if (/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()\.,;\s@\"]+\.{0,1})+([^<>()\.,;:\s@\"]{2,}|[\d\.]+))$/.test(이메일안내창) == false) {
+                $('#email-alert').show().text('이메일 형식에 맞게 입력하세요');
+                e.preventDefault();
+                if (이메일안내창 == '') {
+                    $('#email-alert').show().text('빈칸이네요.');
+                    e.preventDefault();
+                }
+            } else {
+                $('#email-alert').show().text(' ');
+            }
+
+
+            // 패스워드 입력이 대문자가 없으면 전송 막는 정규표현식
+            if (/[A-Z]+/.test(비번안내창) == false) {
+                e.preventDefault();
+                $('#pw-alert').show().text('비번에는 대문자 있어야함.');
+                if (비번안내창 == '') {
+                    $('#pw-alert').show().text('빈칸이네요.');
+                    e.preventDefault();
+                }
+            } else {
+                $('#pw-alert').show().text(' ');
+            }
+        });
+
+
+
+
+        //        if (true) {
+        //            let let_test = 'let'; // 지역 변수로 취급됨 
+        //            var var_test = 'var'; // 전역 변수로 취급됨
+        //        }
+        //        console.log(var_test);
+        //        console.log(let_test);
+
+
+        // var : 재선언이 가능한 변수를 만들 때, 범위 : 함수 스코프(함수 내에서만 지역변수, 나머지는 모두 전역변수)
+
+        // let : 재선언이 불가능 (에러방지용), 범위 : {}, 블록 스코프내에서는 모두 지역변수 
+        // const : 재선언 불가능 & 재할당 불가능, 범위 : {}, 블록 스코프내에서는 모두 지역변수
+
+        //        var 나이 = 20;
+        // input : 내부 입력 값들이 변경될 때 마다 내부코드를 실행해주는 이벤트리스너  
+        // change : 포커스를 잃었을 때 커서가 다른 곳에 찍혔을 때 실행되는 이벤트 리스너
+        //        
+        //        $('#email').on('input', function(e){
+        //            $('#email-alert').fadeIn();
+        //            $('#email-alert').text('입력중...');    
+        //        })
+        //        
+        //        $('#password').on('input', function(e){
+        //            $('pw-alert').fadeIn();
+        //            $('pw-alert').text('입력중...');    
+        //        })
+
+
+
+        // camelCase 작명법, 2번째 인자는 밀리초 단위(~에 걸쳐서 진행)
+        $('#btn-nav').on('click', function() {
+            $('.left-menu').animate({
+                marginLeft: '0px'
+            }, 500);
+        })
+
+        $('#nav-close').click(function() {
+            $('.left-menu').animate({
+                marginLeft: '-150px'
+            }, 100);
+        })
+
+        $('#btn-click').on('click', function() {
+            // css, animate 등을 활용 하는 것 보다 addClass를 활용 하는 것이 좋다. (재활용성)
+            $('.black-background').addClass('login-ani');
+        });
+
+        $('#btn-close').on('click', function() {
+            $('.black-background').removeClass('login-ani');
+        });
+
+        $('#show-nav').on('click', function() {
+            $('.list-group').slideToggle();
+        });
+
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+
+
+
+</body>
+
+</html>
