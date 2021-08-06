@@ -1,4 +1,9 @@
 
 .sort-btn {
-    margin-left : 13%;
+    margin-left : 10%;
+    display: inline-block;
+}
+
+.input-money {
+    width : 20px;
 }
