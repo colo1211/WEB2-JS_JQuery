@@ -1,0 +1,32 @@
+
+body{
+    margin : 0px;
+}
+.gray {
+    background-color: gray;
+    height : 2000px;
+    margin-top : 500px;
+    margin-bottom: 500px;
+}
+
+.sticky {
+    width : 30%;
+    height : 40%;
+    position: sticky; 
+/*스크롤 되는 동안만 fixed 해준다.*/
+    top : 150px;
+    right : 40px;
+    float : right; 
+/*
+    sticky 
+1. position : sticky
+2. 좌표속성과 같이 사용해야 가능하다. ex) top : 100px
+3. 부모 속성내에서 스크롤 동안에 고정된다. (2번에서 스크롤 될 동안의 위치를 지정하는 것)
+4. 부모 속성이 길어야 잘 작동한다. 
+*/
+}
+
+.left-text {
+    float : left; 
+    color : white; 
+}
