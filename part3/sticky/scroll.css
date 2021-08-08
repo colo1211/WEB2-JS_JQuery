@@ -1,0 +1,18 @@
+
+.card-background {
+    height : 3000px;
+    margin-top : 800px; 
+    margin-bottom: 1600px; 
+}
+
+.card-box img{
+    /*가운데 정렬 img는 block이 아니기 때문*/
+    display: block;
+    margin : auto;
+}
+
+.card-box{
+    position: sticky;
+    top : 50px;
+    margin-top : 50px;
+}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>SCROLL</title>
+        <link rel="stylesheet" href="scroll.css">
+        <meta charset="utf-8">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class='card-background'>
+            <div class="card-box">
+                <img src='../이미지파일/card1.png'>
+            </div>
+            <div class="card-box">
+                <img src='../이미지파일/card2.png'>
+            </div>
+            <div class="card-box">
+                <img src='../이미지파일/card3.png'>
+            </div>
+        </div>
+        <script>
+            $(window).scroll(function(){
+                console.log($(window).scrollTop());
+                var 투명도1 = (-1/550) * $(window).scrollTop() + (1370/550); 
+                $('.card-box').eq(0).css('opacity',투명도1);
+                
+                var 투명도2 = (-1/545) * $(window).scrollTop() + (1980/545); 
+                $('.card-box').eq(1).css('opacity',투명도2);
+                
+            })
+        </script>
+    </body>
+</html>
