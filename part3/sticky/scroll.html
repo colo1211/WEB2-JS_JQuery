@@ -22,7 +22,8 @@
             $(window).scroll(function(){
                 console.log($(window).scrollTop());
                 var 투명도1 = (-1/550) * $(window).scrollTop() + (1370/550); 
-                $('.card-box').eq(0).css('opacity',투명도1);
+                var scale = (0.4/550) * $(window).scrollTop() + (0.04);
+                $('.card-box').eq(0).css('opacity',투명도1).css('transform','scale('+scale+')');
                 
                 var 투명도2 = (-1/545) * $(window).scrollTop() + (1980/545); 
                 $('.card-box').eq(1).css('opacity',투명도2);
