@@ -1,0 +1,31 @@
+<html>
+
+<head>
+    <title>setTimeout 연습</title>
+    <meta charset='utf-8'>
+    <!--    JQuery 연결-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <h1>안녕하세요</h1>
+    <button class='btn'>눌러봐</button>
+
+    <script>
+        $('.btn').click(()=>{
+            let 원본 = $('h1').html();
+            let 사본 = '';
+            console.log(원본);
+            
+            $('h1').html(' ');
+            for(let i=0; i<원본.length; i++){
+                setTimeout(()=>{
+                    사본+=원본[i];
+                    $('h1').html(사본);
+                },(i+1)*500);
+            }
+        })
+    </script>
+</body>
+
+</html>
