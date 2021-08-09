@@ -106,7 +106,10 @@ body {
 
 .container-slide {
     width: 300vw;
-    transition: transform 1s;
+}
+
+.transform-auto{
+    transition: transform 0.5s;
 }
 
 .wrap-img {

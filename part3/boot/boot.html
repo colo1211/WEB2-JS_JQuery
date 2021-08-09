@@ -17,7 +17,9 @@
 
     <!--    JS 연결-->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-
+    
+    <!--hammer.js 연결-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js" integrity="sha256-eVNjHw5UeU0jUqPPpZHAkU1z4U+QFBBY488WvueTm88=" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -111,7 +113,94 @@
         <button class='btn-direct btn-right'>▶️</button>
     </div>
 
+<script>
+    
+    // 터치 이미지 슬라이드 기능 추가 (Hammer.js)
+    // pan(터치) 이벤트를 사용하기 위한 라이브러리
+    var 이미지1 = document.querySelectorAll('.wrap-img img')[0];
+    // Hammer.js를 쓰기 위한 밑작업
+    var 매니저1 = new Hammer.Manager(이미지1);
+    매니저1.add(new Hammer.Pan({ threshold: 0 })); // threshold : 이벤트가 실행되기 까지의 역치값, slide 기능 : Pan
+    
+    var 이미지2 = document.querySelectorAll('.wrap-img img')[1];
+    var 매니저2 = new Hammer.Manager(이미지2);
+    매니저2.add(new Hammer.Pan({ threshold: 0 })); 
+    
+    var 이미지3 = document.querySelectorAll('.wrap-img img')[2];
+    var 매니저3 = new Hammer.Manager(이미지3);
+    매니저3.add(new Hammer.Pan({ threshold: 0 })); 
+    
+    // 이미지 1을 터치할 때
+    매니저1.on('pan',function(e){
+        console.log(e.deltaX); // 왼쪽 -> 오른쪽 : +(양수), 왼쪽 <- 오른쪽 : -(음수) 
+        
+        // 오른쪽에서 왼쪽으로 스크린을 터치했을 때 (오른쪽 상품으로 넘어가야 함)
+        // 슬라이드 터치하는 동안에는 지연 없이 그냥 넘어가다가 사용자가 슬라이드 터치를 멈추면 자동으로 0.5초의 텀을 두고 자동으로 이동 한다. 
+        
+        // -> 이미지 2로 넘어가야 함
+        if (e.deltaX < 0){ // 왼쪽 <- 오른쪽 
+            $('.container-slide').css('transform', 'translateX(' + e.deltaX + 'vw)');
+            
+            // 어느정도 user 가 터치 이후에 손을 떼면 0.5초에 걸쳐서 서서히 자동으로 다음 물건으로 이동하게 해주는 코드
+            // transform-auto에는 transition : transform 0.5s; 가 추가 되어 있다. 
+            // 0.5초 이후에 바로 클래스를 제거하여 다음 유저의 터치에 지연이 없도록 setTimeout을 사용.
+            
+            if(e.isFinal){ // e.isFinal : user가 클릭하고 손가락을 떼었을 이벤트를 알려준다. 
+                $('.container-slide').addClass('transform-auto');
+                $('.container-slide').css('transform', 'translateX(-100vw)');
+                setTimeout(()=>{
+                    $('.container-slide').removeClass('transform-auto');    
+                },500)
+            }
+           }
+    })
+    
+//     이미지 2를 터치 할 때
+    매니저2.on('pan',(e)=>{   
+        // -> 이미지 3으로 넘어가야 함
+        if(e.deltaX < 0){ // 왼쪽 <- 오른쪽으로 터치하면 -100vw
+            console.log(e.deltaX);
+            $('.container-slide').css('transform','translateX('+ (-100 + e.deltaX) +'vw)');
+            if(e.isFinal){ // 사용자의 터치가 끝났다면
+                $('.container-slide').addClass('transform-auto');
+                $('.container-slide').css('transform','translateX(-200vw)');
+                setTimeout(()=>{
+                    $('.container-slide').removeClass('transform-auto');    
+                },500);
+            }
+        }
+        // 이미지 1로 넘어가야 함
+        else{
+            console.log(e.deltaX);
+            $('.container-slide').css('transform','translateX(' + (-100+e.deltaX) + 'vw)');
+            if(e.isFinal){
+                $('.container-slide').addClass('transform-auto');
+                $('.container-slide').css('transform','translateX(0vw)');
+                setTimeout(()=>{
+                    $('.container-slide').removeClass('transform-auto');
+                },500);
+            }
+        }
+    });
 
+    // 이미지3, 이미지 2로만 이동하면 된다. 
+    매니저3.on('pan',(e)=>{
+        console.log(e.deltaX);
+        if (e.deltaX>0){ // 왼쪽으로 이동 할 때 이미지 2로 이동한다. 
+            $('.container-slide').css('transform','translateX('+ (-200+e.deltaX) +'vw)');
+            if(e.isFinal){
+                $('.container-slide').addClass('transform-auto');
+                $('.container-slide').css('transform','translateX(-100vw)');
+                setTimeout(()=>{
+                    $('.container-slide').removeClass('transform-auto');    
+                },500);
+            }
+        }
+    })
+    
+</script>
+   
+   
     <!--   1. tab 버튼을 누르면 해당 tab-button에 active 클래스
        2. tab 버튼을 누르면 해당 tab-content에 show 클래스
    -->
@@ -142,6 +231,7 @@
 
     <script>
       
+        
         //  상위 요소인 list에 이벤트 리스너를 달아줌
         //이벤트 리스너를 절약하는 방법
         // 각각의 탭 클래스에 이벤트 리스너를 달아 주는 것이 아닌 
@@ -369,6 +459,7 @@
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+    
 
 
 
