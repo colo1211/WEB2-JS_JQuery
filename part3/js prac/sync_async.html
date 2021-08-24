@@ -1,0 +1,78 @@
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>비동기 동기</title>
+    </head>
+    <body> 
+       
+       <button id='btn'>클릭</button>
+       
+        <script>
+//            console.log(1); 
+//            setTimeout(()=>{
+//                console.log(2); 
+//            },2000);
+//            console.log(3);
+            
+//            function 첫째함수(구멍){
+//                console.log(1); 
+//                구멍();
+//            }
+//            function 둘째함수(){
+//                console.log(2); 
+//            }
+//            첫째함수(둘째함수); 
+//            var 프로미스 = new Promise(function(resolve, reject){
+//                setTimeout(()=>{
+//                    resolve('성공'); 
+//                },1000);
+//            }); 
+//            프로미스.then(function(value){
+//                console.log(value); // 성공했을 때 
+//            }).catch(function(){
+//                console.log('실패');// 실패했을 때
+//            }).finally(function(){
+//                console.log('이건 뭐야');// 성공이던 실패던 실행
+//            })
+            
+//            async function 더하기(콜백){
+//                var 프로미스 = new Promise(function(resolve, reject){
+//                    var 연산 = 1+1; 
+//                    reject(100); 
+//                }); 
+//                
+//                try{
+//                var 결과 = await 프로미스; 
+//                console.log(결과); 
+////                프로미스.then((결과)=>{
+////                console.log(결과);     
+////            })    
+//                }
+//                catch{
+//                    console.log('에러!'); 
+//            }
+//            }
+//            
+//            더하기(); 
+            async function 버튼클릭(){
+                var 프로미스 = new Promise((resolve, reject)=>{
+                    document.getElementById('btn').addEventListener('click', function(){
+                        resolve('성공'); 
+                    })
+                })
+                
+                try { // 성공 시 
+                    var 결과 = await 프로미스; // Promise 성공까지 ㄱㄷ
+                    console.log(결과); 
+                }
+                
+                catch { // 실패 시 
+                    console.log('실패'); 
+                }
+            }
+            버튼클릭(); 
+            
+            
+        </script>
+    </body>
+</html>
